@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 
 function addTask() {
+	
+	//Getting elements from HTML document
     let contentTasks = document.getElementById('mainFrameContentTasks');
     let hintForTasks = document.getElementById('hintForTasks');
     let inputTask = document.getElementById("inputTask");
