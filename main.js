@@ -1,19 +1,25 @@
 //Adding task after clicking 'Enter' key
 document.addEventListener('DOMContentLoaded', (event) => {
     let inputTask = document.getElementById("inputTask");
+    let addTaskButton = document.getElementById("addTaskButton");
 
-    inputTask.addEventListener("keyup", function(event) {
+    inputTask.addEventListener("keydown", function(event) {
         if (event.keyCode === 13) {
             event.preventDefault();
-            document.getElementById("addTaskButton").click();
+            addTask();
         }
     });
+
+    addTaskButton.addEventListener('click', () => {
+        addTask();
+    });
+
 });
 
 
 function addTask() {
-	
-	//Getting elements from HTML document
+
+    //Getting elements from HTML document
     let contentTasks = document.getElementById('mainFrameContentTasks');
     let hintForTasks = document.getElementById('hintForTasks');
     let inputTask = document.getElementById("inputTask");
@@ -25,11 +31,11 @@ function addTask() {
 
         let taskContainerText = document.createElement('div');
         taskContainerText.className = 'taskText col-11';
-        taskContainerText.innerHTML = inputTask.value;
+        taskContainerText.innerText = inputTask.value;
 
         let taskContainerButton = document.createElement('button');
         taskContainerButton.className = 'taskButton col-1 col-s-1';
-        taskContainerButton.innerHTML = '✘';
+        taskContainerButton.innerText = '✘';
 
         //adding listener onClick for deleting task
         taskContainerButton.addEventListener('click', () => {
@@ -52,3 +58,4 @@ function addTask() {
         taskContainer.appendChild(taskContainerButton);
         contentTasks.appendChild(taskContainer);
     }
+}
